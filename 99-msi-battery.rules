@@ -1,0 +1,18 @@
+# udev rule – allow members of the 'plugdev' group to write battery charge
+# thresholds without requiring root or a password prompt.
+#
+# Install:  sudo cp 99-msi-battery.rules /etc/udev/rules.d/
+#           sudo udevadm control --reload-rules && sudo udevadm trigger
+#
+# Then add your user to plugdev (if not already):
+#           sudo usermod -aG plugdev $USER   (log out & back in)
+
+SUBSYSTEM=="power_supply", ATTR{type}=="Battery", \
+  ATTR{charge_control_end_threshold}=="*", \
+  RUN+="/bin/chmod g+w /sys%p/charge_control_end_threshold", \
+  RUN+="/bin/chgrp plugdev /sys%p/charge_control_end_threshold"
+
+SUBSYSTEM=="power_supply", ATTR{type}=="Battery", \
+  ATTR{charge_control_start_threshold}=="*", \
+  RUN+="/bin/chmod g+w /sys%p/charge_control_start_threshold", \
+  RUN+="/bin/chgrp plugdev /sys%p/charge_control_start_threshold"

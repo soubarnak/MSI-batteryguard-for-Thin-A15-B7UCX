@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MSI BatteryGuard
+Comment=Battery charge threshold controller for MSI laptops
+Exec=python3 /usr/local/bin/msi-batteryguard
+Icon=battery
+Terminal=false
+Categories=System;HardwareSettings;
+Keywords=battery;msi;threshold;charge;power;
+StartupNotify=true
