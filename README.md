@@ -1,6 +1,6 @@
 # MSI BatteryGuard
 
-A minimal, modern Linux GUI for controlling the battery charge threshold on **MSI Thin A15 B7UCX** (and other supported MSI laptops).
+A minimal, modern Linux GUI for controlling the battery charge threshold on **MSI Thin A15 B7UCX** only.
 
 ## What it does
 
